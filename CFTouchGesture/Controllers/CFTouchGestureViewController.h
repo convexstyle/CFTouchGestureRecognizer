@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+// Views
+#import "CFTouchGestureView.h"
+
 @interface CFTouchGestureViewController : UIViewController
 
 @end

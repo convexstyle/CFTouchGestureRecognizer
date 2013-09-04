@@ -21,6 +21,9 @@
 		66F183F417CB322D00F9B24B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F183D517CB322D00F9B24B /* Foundation.framework */; };
 		66F183FC17CB322D00F9B24B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66F183FA17CB322D00F9B24B /* InfoPlist.strings */; };
 		66F183FF17CB322D00F9B24B /* CFTouchGestureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F183FE17CB322D00F9B24B /* CFTouchGestureTests.m */; };
+		66F1840B17CB327700F9B24B /* CFTouchGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F1840A17CB327700F9B24B /* CFTouchGestureViewController.m */; };
+		66F1840F17CB339700F9B24B /* CFTouchGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F1840E17CB339700F9B24B /* CFTouchGestureView.m */; };
+		66F1841517CB34F900F9B24B /* CFTouchGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F1841417CB34F900F9B24B /* CFTouchGestureRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		66F183FB17CB322D00F9B24B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		66F183FD17CB322D00F9B24B /* CFTouchGestureTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFTouchGestureTests.h; sourceTree = "<group>"; };
 		66F183FE17CB322D00F9B24B /* CFTouchGestureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFTouchGestureTests.m; sourceTree = "<group>"; };
+		66F1840917CB327700F9B24B /* CFTouchGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFTouchGestureViewController.h; path = Controllers/CFTouchGestureViewController.h; sourceTree = "<group>"; };
+		66F1840A17CB327700F9B24B /* CFTouchGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFTouchGestureViewController.m; path = Controllers/CFTouchGestureViewController.m; sourceTree = "<group>"; };
+		66F1840D17CB339700F9B24B /* CFTouchGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFTouchGestureView.h; path = Views/CFTouchGestureView.h; sourceTree = "<group>"; };
+		66F1840E17CB339700F9B24B /* CFTouchGestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFTouchGestureView.m; path = Views/CFTouchGestureView.m; sourceTree = "<group>"; };
+		66F1841317CB34F900F9B24B /* CFTouchGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFTouchGestureRecognizer.h; sourceTree = "<group>"; };
+		66F1841417CB34F900F9B24B /* CFTouchGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFTouchGestureRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +121,9 @@
 		66F183D917CB322D00F9B24B /* CFTouchGesture */ = {
 			isa = PBXGroup;
 			children = (
+				66F1841017CB34F900F9B24B /* Libs */,
+				66F1840C17CB337900F9B24B /* Views */,
+				66F1840817CB324E00F9B24B /* Controllers */,
 				66F183E217CB322D00F9B24B /* CFAppDelegate.h */,
 				66F183E317CB322D00F9B24B /* CFAppDelegate.m */,
 				66F183DA17CB322D00F9B24B /* Supporting Files */,
@@ -150,6 +162,49 @@
 				66F183FA17CB322D00F9B24B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		66F1840817CB324E00F9B24B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				66F1840917CB327700F9B24B /* CFTouchGestureViewController.h */,
+				66F1840A17CB327700F9B24B /* CFTouchGestureViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		66F1840C17CB337900F9B24B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				66F1840D17CB339700F9B24B /* CFTouchGestureView.h */,
+				66F1840E17CB339700F9B24B /* CFTouchGestureView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		66F1841017CB34F900F9B24B /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				66F1841117CB34F900F9B24B /* Convexstyle */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		66F1841117CB34F900F9B24B /* Convexstyle */ = {
+			isa = PBXGroup;
+			children = (
+				66F1841217CB34F900F9B24B /* Gesture */,
+			);
+			path = Convexstyle;
+			sourceTree = "<group>";
+		};
+		66F1841217CB34F900F9B24B /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				66F1841317CB34F900F9B24B /* CFTouchGestureRecognizer.h */,
+				66F1841417CB34F900F9B24B /* CFTouchGestureRecognizer.m */,
+			);
+			path = Gesture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +319,9 @@
 			files = (
 				66F183E017CB322D00F9B24B /* main.m in Sources */,
 				66F183E417CB322D00F9B24B /* CFAppDelegate.m in Sources */,
+				66F1840B17CB327700F9B24B /* CFTouchGestureViewController.m in Sources */,
+				66F1840F17CB339700F9B24B /* CFTouchGestureView.m in Sources */,
+				66F1841517CB34F900F9B24B /* CFTouchGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

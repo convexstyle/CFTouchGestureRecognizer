@@ -8,9 +8,7 @@
 
 #import "CFTouchGestureView.h"
 
-@implementation CFTouchGestureView {
-    UILabel *_label;
-}
+@implementation CFTouchGestureView
 
 
 #pragma mark - Life Circle
@@ -22,15 +20,38 @@
         self.backgroundColor = [UIColor redColor];
         
         //--- Views ---//
-        _label                 = [[UILabel alloc] initWithFrame:CGRectZero];
-        _label.textColor       = [UIColor whiteColor];
-        _label.backgroundColor = [UIColor clearColor];
-        _label.font            = [UIFont systemFontOfSize:14.0f];
-        _label.text            = @"Tap Me !";
-        [_label sizeToFit];
-        [self addSubview:_label];
+        UILabel *label        = [[UILabel alloc] initWithFrame:CGRectZero];
+        label.textColor       = [UIColor whiteColor];
+        label.backgroundColor = [UIColor clearColor];
+        label.font            = [UIFont systemFontOfSize:14.0f];
+        label.text            = @"Tap Me !";
+        [label sizeToFit];
+        label.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+        [self addSubview:label];
         
         //--- TapGesture Recognizer ---//
+        CFTouchGestureRecognizer *touchGestureRecognizer = [[CFTouchGestureRecognizer alloc] initWithTouchDownBlock:^(CFTouchGestureRecognizer *recognizer, NSSet *touches, UIEvent *event) {
+            label.text = @"Touch Down";
+            [label sizeToFit];
+            label.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+        } touchMovedBlock:^(CFTouchGestureRecognizer *recognizer, NSSet *touches, UIEvent *event) {
+            label.text = @"Touch Moved";
+            [label sizeToFit];
+            label.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+        } touchUpBlock:^(CFTouchGestureRecognizer *recognizer, NSSet *touches, UIEvent *event) {
+            label.text = @"Touch Up Inside";
+            [label sizeToFit];
+            label.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+        } touchUpOutsideBlock:^(CFTouchGestureRecognizer *recognizer, NSSet *touches, UIEvent *event) {
+            label.text = @"Touch Up Outside";
+            [label sizeToFit];
+            label.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+        } touchCancelledBlock:^(CFTouchGestureRecognizer *recognizer, NSSet *touches, UIEvent *event) {
+            label.text = @"Touch Cancelled";
+            [label sizeToFit];
+            label.center = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
+        }];
+        [self addGestureRecognizer:touchGestureRecognizer];
     }
     
     return self;

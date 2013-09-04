@@ -14,6 +14,7 @@
 @property(nonatomic, copy) CFTouchMovedBlock touchMovedBlock;
 @property(nonatomic, copy) CFTouchUpInsideBlock touchUpInsideBlock;
 @property(nonatomic, copy) CFTouchUpOutsideBlock touchUpOutsideBlock;
+@property(nonatomic, copy) CFTouchCancelledBlock touchCancelledBlock;
 @end
 
 
@@ -21,7 +22,7 @@
 
 
 #pragma mark - Life Circle
-- (id)initWithTouchDownBlock:(CFTouchDownBlock)aTouchDownBlock touchMovedBlock:(CFTouchMovedBlock)aTouchMovedBlock touchUpBlock:(CFTouchUpInsideBlock)aTouchUpInsideBlock touchUpOutsideBlock:(CFTouchUpOutsideBlock)aTouchUpOutsideBlock
+- (id)initWithTouchDownBlock:(CFTouchDownBlock)aTouchDownBlock touchMovedBlock:(CFTouchMovedBlock)aTouchMovedBlock touchUpBlock:(CFTouchUpInsideBlock)aTouchUpInsideBlock touchUpOutsideBlock:(CFTouchUpOutsideBlock)aTouchUpOutsideBlock touchCancelledBlock:(CFTouchCancelledBlock)aTouchCancelledBlock
 {
     self = [super init];
     if(self) {
@@ -29,6 +30,7 @@
         self.touchMovedBlock     = aTouchMovedBlock;
         self.touchUpInsideBlock  = aTouchUpInsideBlock;
         self.touchUpOutsideBlock = aTouchUpOutsideBlock;
+        self.touchCancelledBlock = aTouchCancelledBlock;
     }
     return self;
 }
@@ -53,7 +55,6 @@
 {
     UITouch *touch     = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.view];
-    NSLog(@"touchPoint >>> %@", NSStringFromCGPoint(touchPoint));
     if(CGRectContainsPoint(self.view.bounds, touchPoint)) {// TouchUpInside
         if(self.touchUpInsideBlock) {
             self.touchUpInsideBlock(self, touches, event);
@@ -67,7 +68,9 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    // TODO:
+    if(self.touchCancelledBlock) {
+        self.touchCancelledBlock(self, touches, event);
+    }
 }
 
 @end
